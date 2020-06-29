@@ -22,6 +22,11 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'forcase'
     publishLocation: 'Container'
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'forcase'
+    publishLocation: 'pipeline'
 - task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'current'
